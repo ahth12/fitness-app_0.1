@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img th:src="@{/images/1.png}"/>
+<h3>Choose your routine:</h3>
+<div th:each="exercise : ${exercises}">
+    <span th:text="${exercise.id}"></span>. <span th:text="${exercise.name}"></span></br>
+</div>
+</br></br>
+<div class="grid">
+<form method="POST" th:action="@{/start}" th:object="${workout}">
+    <div th:each="exercise : ${exercises}">
+        <input name="exercise" type="checkbox" th:value="${exercise.id}" />
+        <span th:text="${exercise.name}"></span>
+    </div>
+    <input type="submit" value="Submit workout"/>
+</form>
+</div>
+
+</body>
+</html>

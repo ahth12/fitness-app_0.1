@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+Your DB:
+<div th:each="person : ${personList}">
+    <span th:text="${person.firstName}"></span> <span th:text="${person.secondName}"></span></br>
+</div>
+
+</body>
+</html>
